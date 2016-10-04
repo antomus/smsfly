@@ -10,7 +10,8 @@ module Smsfly
   define_setting :password
   define_setting :login, 'Please configure this file  /config/initializers/smsfly.rb'
   define_setting :password, 'Please configure this file  /config/initializers/smsfly.rb'
-
+  define_setting :api_url, 'http://sms-fly.com/api/api.php'
+      
   def self.connect_info
 
     if Smsfly.login.length == 12
@@ -46,8 +47,7 @@ module Smsfly
       <operation>GETBALANCE</operation>
       </request>
 XML
-    full_url = "http://sms-fly.com/api/api.php"
-    uri = URI.parse(full_url)
+    uri = URI.parse(api_url)
     headers = {'Content-Type' => "text/xml", 'Accept' => "text/xml" }
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri, headers)
@@ -81,8 +81,7 @@ XML
       <operation>GETBALANCE</operation>
       </request>
 XML
-      full_url = "http://sms-fly.com/api/api.php"
-      uri = URI.parse(full_url)
+      uri = URI.parse(api_url)
       headers = {'Content-Type' => "text/xml", 'Accept' => "text/xml" }
       http = Net::HTTP.new(uri.host, uri.port)
       request = Net::HTTP::Post.new(uri.request_uri, headers)
@@ -114,8 +113,7 @@ XML
       </request>
 XML
 
-    full_url = "http://sms-fly.com/api/api.php"
-    uri = URI.parse(full_url)
+    uri = URI.parse(api_url)
     headers = {'Content-Type' => "text/xml", 'Accept' => "text/xml" }
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri, headers)
@@ -145,8 +143,7 @@ XML
       </request>
 XML
 
-    full_url = "http://sms-fly.com/api/api.php"
-    uri = URI.parse(full_url)
+    uri = URI.parse(api_url)
     headers = {'Content-Type' => "text/xml", 'Accept' => "text/xml" }
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri, headers)
